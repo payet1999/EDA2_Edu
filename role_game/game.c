@@ -5,39 +5,29 @@
 #include "headers/game.h"
 #include "headers/queue.h"
 
+
 void initSkills(Skill skills[]) {
-    // Skill 1: Fireball
-    strcpy(skills[0].name, "Fireball");
-    skills[0].damage = 30;
-    skills[0].heal = 0;
-    skills[0].duration = 0;
+    
+    // NOTE: Aqui se podria leer la info del JSON por ejemplo y te podrias petar la creacion de listas
+    char[] name[4] = {"Fireball", "Heal", "Poison", "Ice Blast","Lightning Strike"};
+    int damage[4] = {30, 0, 5, 25, 400};
+    int heal[4] = {0, 200, 0, 0, 0};
+    int duration[4] = {0, 0, 3, 0, 0};
 
-    // Skill 2: Heal
-    strcpy(skills[1].name, "Heal");
-    skills[1].damage = 0;
-    skills[1].heal = 200;
-    skills[1].duration = 0;
-
-    // Skill 3: Poison
-    strcpy(skills[2].name, "Poison");
-    skills[2].damage = 5;
-    skills[2].heal = 0;
-    skills[2].duration = 3; // Deals 5 damage for 3 turns
-
-    // Skill 4: Ice Blast
-    strcpy(skills[3].name, "Ice Blast");
-    skills[3].damage = 25;
-    skills[3].heal = 0;
-    skills[3].duration = 0;
-
-    // Skill 5: Lightning Strike
-    strcpy(skills[4].name, "Lightning Strike");
-    skills[4].damage = 400;
-    skills[4].heal = 0;
-    skills[4].duration = 0;
+    // NOTE: Como estas haciendo lo mismo varias veces cambiando solo algun valor, 
+    // vale mas la pena usar un bucle (No he hecho C en mi vida, mirate que este bien escrito jeje)
+    for(int i=0, i<(sizeof(name) / sizeof(name[0])), i++) {
+        strcpy(skills[i].name, name[i]);
+        skills[i].damage = damage[i];
+        skills[i].heal = heal[i];
+        skills[i].duration = duration[i];
+    }
 }
 
 void initEnemies(Enemy enemies[]) {
+
+    // NOTE: Lo mismo del bucle de arriba
+    
     // Enemy 1: Goblin
     strcpy(enemies[0].name, "Goblin");
     enemies[0].hp = 100;

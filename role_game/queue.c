@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "headers/queue.h"
 
+
 Queue* createQueue() {
     Queue *q = (Queue*) malloc(sizeof(Queue));
     q->front = q->rear = NULL;
@@ -37,6 +38,14 @@ int dequeue(Queue *q) {
     return value;
 }
 
+// NOTE: Siempre esta bien poner comentarios con esta estructura en C para describir metodos (en todos obvio).
+// Se usa esta nomenclatura para poder generar documentación de codigo a posteriori facilmente 
+// con Doxygen o del estilo
+/**
+ * @brief Get size of a Queue object
+ * @param q Queue object to be evaluated
+ * @return Integer indicating Queue size
+ */
 int queueSize(Queue *q) {
     return q->size;
 }
